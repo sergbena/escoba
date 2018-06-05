@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/juego.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="usuario1" class="usuario">
+            <div class="imagenPerfil">
+                <img src="" alt="Foto Usuario">
+                <label id="nombre1">Nombre Apellido</label>
+            </div>
+            <div id="cartasUsuarioL" class="cartasUsuario">
+                
+            </div>
+
+            <div id="botones">
+                <input id="botD" type="button" value="Dejar" disabled>
+                <input id="botR" type="button" value="Recoger" disabled>
+            </div>
+
+            <div id="puntuacion1" class="score">
+                <div>
+                    <label >cuenta:</label><label id="pts1" >0</label>
+                </div>
+                <div>
+                    <label >Escoba1:</label><label id="esc1">0</label>
+                </div>
+                <div>
+                    <label >Nº Cartas1:</label><label id="cart1" >0</label>
+                </div>
+            </div>
+        </div>
+        <div id="central">
+            <div id="tapete">
+                
+            </div>
+            <div id="baraja">
+                <img src="../img/naipes.PNG" alt="carta1" class="barajaOculta">
+                <label id="ncarts">nº cartas</label>
+            </div>
+        </div>
+        <div id="usuario2" class="usuario">
+            <div class="imagenPerfil">
+                <img src="" alt="Foto Usuario" id="foto2">
+                <label id="nombre2">Nombre Apellido</label>
+            </div>
+            <div id="cartasUsuarioV" class="cartasUsuario">
+                
+            </div>
+            <div id="puntuacion2" class="score">
+                <div>
+                    <label >Puntos:</label><label id="pts2" >0</label>
+                </div>
+                <div>
+                    <label >Escoba:</label><label id="esc2">0</label>
+                </div>
+                <div>
+                    <label >Nº Cartas:</label><label id="cart2" >0</label>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="../js/juego.js" ></script>
+    </body>
+</html>
