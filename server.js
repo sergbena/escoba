@@ -131,32 +131,16 @@ app.post('/repartir',function (req,res) {
     });
 });
 
-// app.post('/final',function(req,res){
-//
-//     var play1=req.body.j1;
-//     var play2=req.body.j2;
-//     var cent=req.body.cent;
-//
-//     if(play1._last){
-//     	for(var c=0; c<cent.length; c++){
-//     		var m=cent.shift();
-//     		play1._carts.push(m);
-// 		}
-// 	}
-// 	else if(play2._last){
-//         for(var c=0; c<cent.length; c++){
-//             var m=cent.shift();
-//             play2._carts.push(m);
-//         }
-// 	}
-//
-//     res.json({
-//         bar:bara,
-//         jugador1:play1,
-//         jugador2:play2,
-//         center:cent
-//     });
-// });
+app.get('/puntuacion',function(req,res){
+
+    var play1=req.body.j1;
+    var play2=req.body.j2;
+
+    res.json({
+        jugador1:play1,
+        jugador2:play2
+    });
+});
 
 //------ESCUCHANDO------------
 serv.listen(process.env.PORT || 4000, function(){

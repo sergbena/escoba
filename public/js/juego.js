@@ -494,20 +494,14 @@ function reparto(bara,player1,player2,centro) {
 
             cuantasCartas(baraja);
 
-            // if(!local._hand && !visitante._hand && !baraja){
-            //     console.log('Fin de partida');
-            //     if(local._last){
-            //         setTimeout(function () {
-            //             finderonda(baraja,local,visitante,central);
-            //         },500);
-            //
-            //     }else if(visitante._last){
-            //         setTimeout(function () {
-            //             finderonda(baraja,visitante,local,central);
-            //         },500);
-            //
-            //     }
-            // }
+            if(!baraja && !local._hand && !visitante._hand && central){
+                baraja=[];
+                reparto(baraja,local,visitante,central)
+            }
+
+            if(!baraja && !local._hand && !visitante._hand && !central){
+                puntuacion(local,visitante);
+            }
 
             $("#cartasUsuarioL").empty();
             $("#cartasUsuarioV").empty();
@@ -548,58 +542,20 @@ function reparto(bara,player1,player2,centro) {
 
 }
 
-// function finderonda(bara,player1,player2,centro){
-//
-//     console.log('final de ronda');
-//     var añadir=[];
-//
-//     // for(var i=0; i<centro.length;i++){
-//     //     var carta=centro.shift();
-//     //     añadir.push(carta);
-//     // }
-//
-//     var parametro={
-//         bar: bara,
-//         j1: player1,
-//         j2: player2,
-//         cent:centro,
-//         car:añadir
-//     };
-//
-//     $.ajax({
-//         url:'/final',
-//         data:parametro,
-//         method:'post',
-//         success:function (res) {
-//
-//             contador=0;
-//
-//             $("#pts1").text(contador);
-//
-//             console.log('final de partida post');
-//             console.log(res);
-//
-//             if(res.jugador1._name == pl){
-//                 local=res.jugador1;
-//                 visitante=res.jugador2;
-//             }
-//             else{
-//                 local=res.jugador2;
-//                 visitante=res.jugador1;
-//             }
-//
-//             central=res.center;
-//             baraja=res.bar;
-//
-//             cuantasCartas(baraja);
-//
-//             $("#cartasUsuarioL").empty();
-//             $("#cartasUsuarioV").empty();
-//             $("#tapete").empty();
-//
-//             $("#cartasUsuarioL").append(addCartas(local._hand, "usuarioL"));
-//             $("#cartasUsuarioV").append(addCartas(visitante._hand, "usuarioV"));
-//             $("#tapete").append(addCartas(central, "central"));
-//         }
-//     });
-// }
+function puntuacion(player1,player2){
+
+    var parametro={
+        j1: player1,
+        j2: player2
+    };
+
+    $.ajax({
+        url:'/puntuacion',
+        data:parametro,
+        method:'get',
+        success:function (res) {
+            console.log('puntuar');
+            console.log(res);
+        }
+    });
+}
